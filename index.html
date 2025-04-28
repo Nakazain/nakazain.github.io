@@ -9,15 +9,16 @@
 
 <body class="bg-[#393E46] text-white font-poppins">
   <div class="flex justify-center">
-    <div class="mx-20 my-58 text-center">
+    <div class="my-58 text-center">
       <h1 class="text-3xl text-center font-bold">Hi, I'm Nakazain👋</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <button
-        class="bg-[#222831] text-white text-center font-bold px-6 py-2 mt-3 rounded-2xl border-2 border-[#00ADB5] shadow-md shadow-[#00ADB5] transition-all active:duration-100 active:ease-out hover:duration-500 hover:ease-[cubic-bezier(0.68,-0.55,0.27,1.55)] hover:px-16 hover:py-3 hover:shadow-lg hover:rounded-4xl hover:border-amber-400 hover:shadow-amber-400 hover:cursor-pointer active:translate-y-3 active:text-sm active:shadow-md">
+      <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <a href="#about"
+        class="bg-[#222831]  text-white text-center font-bold px-6 py-2 mt-3 rounded-2xl border-2 border-[#00ADB5] shadow-md shadow-[#00ADB5] transition-all active:duration-100 active:ease-out hover:duration-500 hover:ease-[cubic-bezier(0.68,-0.55,0.27,1.55)] hover:px-16 hover:py-3 hover:shadow-lg hover:rounded-4xl hover:border-amber-400 hover:shadow-amber-400 hover:cursor-pointer active:translate-y-3 active:text-sm active:shadow-md">
         About me
-      </button>
+      </a>
     </div>
   </div>
+  <div id="about"></div>
   <div class="flex justify-around mx-40 gap-6 mt-52 mb-72">
     <img src="/src/img/tes.png" alt="My" class="w-52 h-60 rounded-xl border-2 border-[#00ADB5] object-cover" />
     <div>
@@ -31,10 +32,12 @@
       </p>
     </div>
   </div>
+
+  
   <div class="mx-40 my-40">
     <h2 class="text-3xl font-bold pb-2 border-b-2 pl-1">My Project</h2>
     <div class="grid grid-cols-2 mt-4 gap-4">
-      <div
+      <div id="web-project"
         class="bg-[#222831] border-2 p-4 rounded-md border-[#00ADB5] shadow-md shadow-[#00ADB5] group transition-all duration-300 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-400 hover:-translate-y-2 active:translate-y-0 active:shadow-sm">
         <img src="/src/img/tes.png" alt="" class="w-full h-40 object-cover rounded-sm" />
         <p class="text-center text-lg font-semibold mt-3 mb-1 transition-all">Web Project</p>
@@ -60,6 +63,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="mx-40">
     <h2 class="text-3xl font-bold pb-2 border-b-2 pl-1">My social media</h2>
     <div class="grid grid-cols-4 gap-2 mt-1">
@@ -103,23 +108,99 @@
         all</a>
     </div>
   </div>
+
+
   <div class="mx-40 my-40">
     <h2 class="text-3xl font-bold pb-2 border-b-2 pl-1">Send Me A Masage</h2>
+    <form>
     <div class="grid grid-cols-2 gap-3 mt-3">
       <div class="relative">
-      <input id="name" class="border-2 peer transition-all mt-7 placeholder-shown:mt-0 duration-300 border-[#00ADB5] bg-[#222831] rounded-xl h-10 p-2 px-4 w-full focus:mt-7" type="text" name="name" placeholder=" "/>
+      <input id="name" class="border-2 peer transition-all mt-7 placeholder-shown:mt-0 duration-300 border-[#00ADB5] bg-[#222831] rounded-xl h-10 py-2 px-4 w-full focus:mt-7" type="text" name="name" placeholder=" "/>
       <label for="name" class="absolute mx-2 transition-all duration-300 top-0 peer-focus:top-0 left-3 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2">Name</label>
       </div>
       <div class="relative">
-      <input id="email" class="border-2 peer transition-all mt-7 placeholder-shown:mt-0 duration-300 border-[#00ADB5] bg-[#222831] rounded-xl h-10 p-2 w-full focus:mt-7" type="email" name="name" placeholder=" "/>
+      <input id="email" class="border-2 peer transition-all mt-7 placeholder-shown:mt-0 duration-300 border-[#00ADB5] bg-[#222831] rounded-xl h-10 py-2 px-4 w-full focus:mt-7" type="email" name="name" placeholder=" "/>
       <label for="email" class="absolute mx-2 transition-all duration-300 top-0 peer-focus:top-0 left-3 peer-placeholder-shown:text-gray-500 peer-invalid:text-red-500 peer-placeholder-shown:top-2">Email</label>
       </div>
     </div>
     <div class="relative mt-3">
-    <textarea id="name" class="border-2 peer transition-all mt-7 placeholder-shown:mt-0 duration-300 border-[#00ADB5] bg-[#222831] rounded-xlp y-4 resize-y h-42 w-full focus:mt-7" type="text" name="name" placeholder=" "></textarea>
-    <label for="name" class="absolute mx-2 transition-all duration-300 top-0 peer-focus:top-0 left-3 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2">Name</label>
+    <textarea id="name" class="border-2 peer transition-all mt-7 px-4 placeholder-shown:mt-0 duration-300 border-[#00ADB5] bg-[#222831] rounded-xl py-4 resize-y h-42 w-full focus:mt-7" type="text" name="name" placeholder=" "></textarea>
+    <label for="name" class="absolute mx-2 transition-all duration-300 top-0 peer-focus:top-0 left-3 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2">Massage</label>
+    </div>
+    <button class="w-full bg-[#222831] mt-2 border-2 border-[#00ADB5] h-10 rounded-xl shadow-sm shadow-[#00ADB5] transition-all duration-300 hover:border-amber-400 hover:shadow-md hover:shadow-amber-400 hover:-translate-y-1 active:translate-y-0 active:shadow-sm">Submit</button>
+  </form>
+  </div>
+  <footer>
+    <div class="flex justify-center mt-20 mb-10">
+      <p class="text-sm">© 2023 Nakazain. All rights reserved.</p>
+  </footer>
+
+
+  <!-- Modal -->
+<div id="modal" class="fixed inset-0 overflow-auto bg-black bg-opacity-50 z-40 hidden opacity-0 scale-95 transition-all duration-300">
+  <button id="close-modal" class="bg-red-500 text-white px-4 py-2 rounded m-4">Close</button>
+  <div class="flex justify-center">
+  <div class="max-w-6xl mt-4">
+    <div class="flex gap-4">
+      <div class="w-1/4 border-2 border-[#00ADB5] rounded-md p-4 bg-[#222831] shadow-md shadow-[#00ADB5]">
+        <p class="border-t-2 p-2">Web Project</p>
+        <p class="border-t-2 p-2">Design Project</p>
+      </div>
+      <div class="w-1/4 border-2 border-[#00ADB5] rounded-md p-4 bg-[#222831] shadow-md shadow-[#00ADB5]">
+        <div class="border-t-2 p-2">Project 1</div>
+        <div class="border-t-2 p-2">Project 1</div>
+        <div class="border-t-2 p-2">Project 1</div>
+        <div class="border-t-2 p-2">Project 1</div>
+      </div>
+      <div class="w-2/4 border-2 border-[#00ADB5] rounded-md p-4 bg-[#222831] shadow-md shadow-[#00ADB5]">
+        <p class="text-center text-3xl py-4 font-bold">Project 1</p>
+        <img src="/src/img/tes.png" alt="Project Image" class="mx-auto">
+        <p class="mt-4 text-justify">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quo veniam iure, itaque vero repellat rem at doloribus sint ipsa omnis in quis magnam unde dignissimos quos blanditiis saepe, impedit, dolore modi architecto officia? Molestias ipsum exercitationem corrupti temporibus in natus quidem laboriosam consequuntur explicabo, voluptate, eius, magnam rerum iure vitae vel nulla accusamus beatae deserunt inventore fugit. Cupiditate dolorem voluptatibus repellendus ea iste odit veritatis, iure dolorum similique consequatur aliquam fugit aliquid fuga? Magni nostrum voluptatum dolorum, voluptate eum aliquam eveniet officiis! Molestias nisi omnis molestiae praesentium natus corrupti at veniam. Consequuntur dicta beatae odit, impedit temporibus porro quam, similique repudiandae inventore nam architecto aspernatur autem quae reprehenderit? Modi, quisquam numquam fugit explicabo eos iure voluptatibus harum nobis omnis eius, vitae nihil reprehenderit, officia ipsam doloribus quo aut veniam architecto quaerat. Libero id voluptatum error nisi officia accusantium quidem distinctio hic et. Aspernatur assumenda dignissimos nisi sint dolorum dolore id fugit, libero porro provident magnam inventore ab reprehenderit rem animi veniam consectetur fugiat repellendus quisquam illum. Illum excepturi ratione quam doloremque natus inventore temporibus ipsa sequi quasi reprehenderit laboriosam eveniet adipisci at, neque repellendus voluptatem aliquam, itaque assumenda corporis, molestias culpa. Maxime quod impedit magnam et accusamus placeat delectus?
+        </p>
+      </div>
     </div>
   </div>
+  </div>
+</div>
+
+  <script>
+      const modal = document.getElementById('modal');
+  const openModalBtn = document.getElementById('web-project');
+  const closeModalBtn = document.getElementById('close-modal');
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    openModalBtn.addEventListener('click', function () {
+    modal.classList.remove('hidden');
+    
+    // Pakai setTimeout agar transition bisa jalan
+    setTimeout(() => {
+      modal.classList.remove('opacity-0', 'scale-95');
+      modal.classList.add('opacity-100', 'scale-100');
+    }, 10); 
+  });
+
+  closeModalBtn.addEventListener('click', function () {
+    // Balikkan ke semula (fade-out dan scale-down)
+    modal.classList.remove('opacity-100', 'scale-100');
+    modal.classList.add('opacity-0', 'scale-95');
+    
+    // Setelah transisi selesai, baru hidden
+    setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 300); // Sesuai durasi transition-all (300ms)
+  });
+  </script>
 </body>
 
 </html>
