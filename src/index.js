@@ -35,7 +35,7 @@ openModalBtn.addEventListener("click", function () {
   setTimeout(() => {
     modal.classList.remove("opacity-0", "scale-95");
     modal.classList.add("opacity-100", "scale-100");
-  }, 10);
+  }, 100);
 
   // Animate modal title
   setTimeout(() => {
@@ -95,29 +95,45 @@ closeModalBtn.addEventListener("click", function () {
 });
 
 btnWeb1.addEventListener("click", function () {
-  contentWeb1.classList.remove("hidden");
-  if (contentWeb2.classList = "opacity-100") {
-    contentWeb2.classList.remove("opacity-100");
-    contentWeb2.classList.add("opacity-0");
-    contentWeb2.classList.add("hidden");
-  }
-  if (contentWeb3.classList = "opacity-100") {
-    contentWeb3.classList.remove("opacity-100");
-    contentWeb3.classList.add("opacity-0");
-    contentWeb3.classList.add("hidden");
-  }
+  if (contentWeb2.classList.contains = "opacity-100") {
+    setTimeout(() => {
+      contentWeb2.classList.remove("opacity-100");
+      contentWeb2.classList.add("opacity-0");
+      contentWeb2.classList.add("hidden");
+    }, 300);
+  };
+  if (contentWeb3.classList.contains = "opacity-100") {
+    setTimeout(() => {      
+      contentWeb3.classList.remove("opacity-100");
+      contentWeb3.classList.add("opacity-0");
+      contentWeb3.classList.add("hidden");
+    }, 300);
+  };
+  setTimeout(() => {
+    contentWeb1.classList.remove("hidden");
+    contentWeb1.classList.remove("opacity-0")
+    contentWeb1.classList.add("opacity-100")
+  }, 300);
 });
 
-btnWeb2.addEventListener("click", function (){
-  contentWeb2.classList.remove("hidden");
-  if (contentWeb1.classList = "opacity-100") {
-    contentWeb1.classList.remove("opacity-100");
-    contentWeb1.classList.add("opacity-0");
-    contentWeb1.classList.add("hidden");
-  }
-  if (contentWeb3.classList = "opacity-100") {
-    contentWeb3.classList.remove("opacity-100");
-    contentWeb3.classList.add("opacity-0");
-    contentWeb3.classList.add("hidden");
-  }
-})
+btnWeb2.addEventListener("click", function () {
+  if (contentWeb1.classList.contains = "opacity-100") {
+    setTimeout(() => {      
+      contentWeb1.classList.remove("opacity-100");
+      contentWeb1.classList.add("opacity-0");
+      contentWeb1.classList.add("hidden");
+    }, 300);
+  };
+  if (contentWeb3.classList.contains = "opacity-100") {
+    setTimeout(() => {      
+      contentWeb3.classList.remove("opacity-100");
+      contentWeb3.classList.add("opacity-0");
+      contentWeb3.classList.add("hidden");
+    }, 300);
+  };
+  setTimeout(() => {
+    contentWeb2.classList.remove("hidden");
+    contentWeb2.classList.remove("opacity-0")
+    contentWeb2.classList.add("opacity-100")
+  }, 300);
+});
