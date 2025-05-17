@@ -74,8 +74,6 @@ openModalBtn.addEventListener("click", function () {
 // Close modal with animations
 closeModalBtn.addEventListener("click", function () {
   // Reset animations for modal elements
-  prjkTitle.classList.remove("opacity-100", "translate-y-0");
-  prjkTitle.classList.add("opacity-0", "translate-y-4");
   sideModal.classList.remove("opacity-100", "w-20");
   sideModal.classList.add("opacity-0", "w-0");
   centerModal.classList.remove("opacity-100", "w-1/4");
