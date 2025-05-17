@@ -1,7 +1,6 @@
 const modal = document.getElementById("modal");
 const openModalBtn = document.getElementById("web-project");
 const closeModalBtn = document.getElementById("close-modal");
-const prjkTitle = document.getElementById("modal-title");
 const sideModal = document.getElementById("container-side");
 const centerModal = document.getElementById("container-center");
 const btnWeb1 = document.getElementById("web-button-1");
@@ -12,6 +11,7 @@ const contentWeb2 = document.getElementById("web-content-2");
 const contentWeb3 = document.getElementById("web-content-3");
 const contentModal = document.querySelectorAll(".content-modal");
 const modalSides = document.querySelectorAll(".modal-side");
+const sideText = document.querySelectorAll(".side-text");
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -40,29 +40,34 @@ openModalBtn.addEventListener("click", function () {
   // Animate modal title
   setTimeout(() => {
     sideModal.classList.remove("opacity-0", "w-0");
-    sideModal.classList.add("opacity-100", "w-20");
+    sideModal.classList.add("opacity-100", "w-2/6");
   }, 300);
+  setTimeout(() => {
+    sideModal.classList.remove("w-2/6");
+    sideModal.classList.add("w-20");
+  }, 1800);
   setTimeout(() => {
     centerModal.classList.remove("opacity-0", "w-0");
     centerModal.classList.add("opacity-100", "w-1/4");
   }, 500);
-  setTimeout(() => {
-    prjkTitle.classList.remove("opacity-0", "translate-y-4");
-    prjkTitle.classList.add("opacity-100", "translate-y-0");
-  }, 1200);
 
   // Animate modal side elements sequentially
   modalSides.forEach((el, index) => {
     setTimeout(() => {
       el.classList.remove("opacity-0", "-translate-x-4");
       el.classList.add("opacity-100", "translate-x-0");
-    }, 300 + index * 150); // Sequential delay: 500ms, 700ms, etc.
+    }, 300 + index * 150);
+  });
+  sideText.forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.add("text-[0px]", "opacity-0");
+    }, 1800);
   });
   contentModal.forEach((el, index) => {
     setTimeout(() => {
       el.classList.remove("opacity-0");
       el.classList.add("opacity-100");
-    }, 300 + index * 150); // Sequential delay: 500ms, 700ms, etc.
+    }, 300 + index * 150);
   });
 });
 
@@ -80,6 +85,9 @@ closeModalBtn.addEventListener("click", function () {
     el.classList.add("opacity-0", "-translate-x-4");
     el.classList.remove("opacity-100", "translate-x-0");
   });
+  sideText.forEach((el) => {
+    el.classList.remove("text-[0px]", "opacity-0");
+  });
   contentModal.forEach((el) => {
     el.classList.add("opacity-0");
     el.classList.remove("opacity-0");
@@ -95,45 +103,82 @@ closeModalBtn.addEventListener("click", function () {
 });
 
 btnWeb1.addEventListener("click", function () {
-  if (contentWeb2.classList.contains = "opacity-100") {
+  if (contentWeb2.classList.contains("opacity-100")) {
+    btnWeb2.classList.remove("font-bold")
+    contentWeb2.classList.remove("opacity-100");
+    contentWeb2.classList.add("opacity-0");
     setTimeout(() => {
-      contentWeb2.classList.remove("opacity-100");
-      contentWeb2.classList.add("opacity-0");
       contentWeb2.classList.add("hidden");
-    }, 300);
-  };
-  if (contentWeb3.classList.contains = "opacity-100") {
-    setTimeout(() => {      
-      contentWeb3.classList.remove("opacity-100");
-      contentWeb3.classList.add("opacity-0");
+    }, 200);
+  }
+  if (contentWeb3.classList.contains("opacity-100")) {
+    btnWeb3.classList.remove("font-bold")
+    contentWeb3.classList.remove("opacity-100");
+    contentWeb3.classList.add("opacity-0");
+    setTimeout(() => {
       contentWeb3.classList.add("hidden");
-    }, 300);
-  };
+    }, 200);
+  }
   setTimeout(() => {
     contentWeb1.classList.remove("hidden");
-    contentWeb1.classList.remove("opacity-0")
-    contentWeb1.classList.add("opacity-100")
-  }, 300);
+    setTimeout(() => {
+      contentWeb1.classList.remove("opacity-0");
+      contentWeb1.classList.add("opacity-100");
+      btnWeb1.classList.add("font-bold");
+    }, 50);
+  }, 200);
 });
 
 btnWeb2.addEventListener("click", function () {
-  if (contentWeb1.classList.contains = "opacity-100") {
-    setTimeout(() => {      
-      contentWeb1.classList.remove("opacity-100");
-      contentWeb1.classList.add("opacity-0");
+  if (contentWeb1.classList.contains("opacity-100")) {
+    btnWeb1.classList.remove("font-bold");
+    contentWeb1.classList.remove("opacity-100");
+    contentWeb1.classList.add("opacity-0");
+    setTimeout(() => {
       contentWeb1.classList.add("hidden");
-    }, 300);
-  };
-  if (contentWeb3.classList.contains = "opacity-100") {
-    setTimeout(() => {      
-      contentWeb3.classList.remove("opacity-100");
-      contentWeb3.classList.add("opacity-0");
+    }, 200);
+  }
+  if (contentWeb3.classList.contains("opacity-100")) {
+    btnWeb3.classList.remove("font-bold");
+    contentWeb3.classList.remove("opacity-100");
+    contentWeb3.classList.add("opacity-0");
+    setTimeout(() => {
       contentWeb3.classList.add("hidden");
-    }, 300);
-  };
+    }, 200);
+  }
   setTimeout(() => {
     contentWeb2.classList.remove("hidden");
-    contentWeb2.classList.remove("opacity-0")
-    contentWeb2.classList.add("opacity-100")
-  }, 300);
+    setTimeout(() => {
+      contentWeb2.classList.remove("opacity-0");
+      contentWeb2.classList.add("opacity-100");
+      btnWeb2.classList.add("font-bold");
+    }, 50);
+  }, 200);
+});
+
+btnWeb3.addEventListener("click", function () {
+  if (contentWeb1.classList.contains("opacity-100")) {
+    btnWeb1.classList.remove("font-bold");
+    contentWeb1.classList.remove("opacity-100");
+    contentWeb1.classList.add("opacity-0");
+    setTimeout(() => {
+      contentWeb1.classList.add("hidden");
+    }, 200);
+  }
+  if (contentWeb2.classList.contains("opacity-100")) {
+    btnWeb2.classList.remove("font-bold");
+    contentWeb2.classList.remove("opacity-100");
+    contentWeb2.classList.add("opacity-0");
+    setTimeout(() => {
+      contentWeb2.classList.add("hidden");
+    }, 200);
+  }
+  setTimeout(() => {
+    contentWeb3.classList.remove("hidden");
+    setTimeout(() => {
+      contentWeb3.classList.remove("opacity-0");
+      contentWeb3.classList.add("opacity-100");
+      btnWeb3.classList.add("font-bold");
+    }, 50);
+  }, 200);
 });
