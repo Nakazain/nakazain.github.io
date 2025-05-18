@@ -13,7 +13,7 @@ const contentModal = document.querySelectorAll(".content-modal");
 const modalSides = document.querySelectorAll(".modal-side");
 const sideText = document.querySelectorAll(".side-text");
 
-// Smooth scrolling for anchor links
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -27,53 +27,53 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Open modal with animations
+// Open modal
 openModalBtn.addEventListener("click", function () {
   modal.classList.remove("hidden");
 
-  // Trigger modal appearance animation
   setTimeout(() => {
     modal.classList.remove("opacity-0", "scale-95");
     modal.classList.add("opacity-100", "scale-100");
   }, 100);
 
-  // Animate modal title
   setTimeout(() => {
     sideModal.classList.remove("opacity-0", "w-0");
     sideModal.classList.add("opacity-100", "w-2/6");
-  }, 300);
-  setTimeout(() => {
-    sideModal.classList.remove("w-2/6");
-    sideModal.classList.add("w-20");
-  }, 1800);
+  }, 500);
   setTimeout(() => {
     centerModal.classList.remove("opacity-0", "w-0");
     centerModal.classList.add("opacity-100", "w-1/4");
-  }, 500);
+  }, 700);
+  setTimeout(() => {
+    sideModal.classList.remove("w-2/6");
+    sideModal.classList.add("w-20");
+  }, 2200);
 
-  // Animate modal side elements sequentially
   modalSides.forEach((el, index) => {
     setTimeout(() => {
       el.classList.remove("opacity-0", "-translate-x-4");
       el.classList.add("opacity-100", "translate-x-0");
-    }, 300 + index * 150);
+    }, 700 + index * 200);
   });
   sideText.forEach((el, index) => {
     setTimeout(() => {
       el.classList.add("text-[0px]", "opacity-0");
-    }, 1800);
+    }, 2000);
   });
-  contentModal.forEach((el, index) => {
-    setTimeout(() => {
-      el.classList.remove("opacity-0");
-      el.classList.add("opacity-100");
-    }, 300 + index * 150);
-  });
+  setTimeout(() => {
+    contentModal.forEach((el) => {
+      if (!el.classList.contains("hidden")) {
+        el.classList.remove("opacity-0");
+        el.classList.add("opacity-100");
+      } else {
+        el.classList.remove("opacity-100");
+        el.classList.add("opacity-0");
+      }
+    });
+  }, 1000);
 });
 
-// Close modal with animations
 closeModalBtn.addEventListener("click", function () {
-  // Reset animations for modal elements
   sideModal.classList.remove("opacity-100", "w-20");
   sideModal.classList.add("opacity-0", "w-0");
   centerModal.classList.remove("opacity-100", "w-1/4");
@@ -86,10 +86,12 @@ closeModalBtn.addEventListener("click", function () {
   sideText.forEach((el) => {
     el.classList.remove("text-[0px]", "opacity-0");
   });
-  contentModal.forEach((el) => {
-    el.classList.add("opacity-0");
-    el.classList.remove("opacity-0");
-  });
+    contentModal.forEach((el) => {
+      if (el.classList.contains("opacity-100")) {
+        el.classList.remove("opacity-100");
+        el.classList.add("opacity-0");
+      }
+    });
 
   // Close modal
   modal.classList.remove("opacity-100", "scale-100");
@@ -102,7 +104,7 @@ closeModalBtn.addEventListener("click", function () {
 
 btnWeb1.addEventListener("click", function () {
   if (contentWeb2.classList.contains("opacity-100")) {
-    btnWeb2.classList.remove("font-bold")
+    btnWeb2.classList.remove("font-bold");
     contentWeb2.classList.remove("opacity-100");
     contentWeb2.classList.add("opacity-0");
     setTimeout(() => {
@@ -110,7 +112,7 @@ btnWeb1.addEventListener("click", function () {
     }, 200);
   }
   if (contentWeb3.classList.contains("opacity-100")) {
-    btnWeb3.classList.remove("font-bold")
+    btnWeb3.classList.remove("font-bold");
     contentWeb3.classList.remove("opacity-100");
     contentWeb3.classList.add("opacity-0");
     setTimeout(() => {
