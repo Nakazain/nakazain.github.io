@@ -320,12 +320,10 @@ btnOther3.addEventListener("click", function () {
 });
 
 sideWeb.addEventListener("click", function () {
-  // Show web project modal, hide other project modal
   centerModalWeb.classList.remove("hidden", "opacity-0", "w-0");
   centerModalWeb.classList.add("opacity-100", "w-1/4");
   centerModalOther.classList.add("hidden", "opacity-0", "w-0");
   centerModalOther.classList.remove("opacity-100", "w-1/4");
-  // Show web content 1, hide all other content
   contentWeb1.classList.remove("hidden", "opacity-0");
   contentWeb1.classList.add("opacity-100");
   contentWeb2.classList.add("hidden", "opacity-0");
@@ -333,7 +331,6 @@ sideWeb.addEventListener("click", function () {
   contentOther1.classList.add("hidden", "opacity-0");
   contentOther2.classList.add("hidden", "opacity-0");
   contentOther3.classList.add("hidden", "opacity-0");
-  // Reset button bold
   btnWeb1.classList.add("font-bold");
   btnWeb2.classList.remove("font-bold");
   btnWeb3.classList.remove("font-bold");
@@ -343,12 +340,10 @@ sideWeb.addEventListener("click", function () {
 });
 
 sideOther.addEventListener("click", function () {
-  // Show other project modal, hide web project modal
   centerModalOther.classList.remove("hidden", "opacity-0", "w-0");
   centerModalOther.classList.add("opacity-100", "w-1/4");
   centerModalWeb.classList.add("hidden", "opacity-0", "w-0");
   centerModalWeb.classList.remove("opacity-100", "w-1/4");
-  // Show other content 1, hide all web content
   contentOther1.classList.remove("hidden", "opacity-0");
   contentOther1.classList.add("opacity-100");
   contentOther2.classList.add("hidden", "opacity-0");
@@ -356,7 +351,6 @@ sideOther.addEventListener("click", function () {
   contentWeb1.classList.add("hidden", "opacity-0");
   contentWeb2.classList.add("hidden", "opacity-0");
   contentWeb3.classList.add("hidden", "opacity-0");
-  // Reset button bold
   btnOther1.classList.add("font-bold");
   btnOther2.classList.remove("font-bold");
   btnOther3.classList.remove("font-bold");
