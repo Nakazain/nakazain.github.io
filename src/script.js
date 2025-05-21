@@ -79,7 +79,6 @@ openModalWeb.addEventListener("click", function () {
   }, 1000);
 });
 
-// Open modal via other button
 openModalOther.addEventListener("click", function () {
   modal.classList.remove("hidden");
   centerModalOther.classList.remove("hidden");
