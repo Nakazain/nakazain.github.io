@@ -20,6 +20,8 @@ const contentOther3 = document.getElementById("other-content-3");
 const contentModal = document.querySelectorAll(".content-modal");
 const modalSides = document.querySelectorAll(".modal-side");
 const sideText = document.querySelectorAll(".side-text");
+const sideWeb = document.getElementById("side-web");
+const sideOther = document.getElementById("side-other");
 
 // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -38,9 +40,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // Open modal via web project
 openModalWeb.addEventListener("click", function () {
   modal.classList.remove("hidden");
+  centerModalWeb.classList.remove("hidden");
+  contentWeb1.classList.remove("hidden");
+  sideModal.classList.remove("hidden");
 
   setTimeout(() => {
-    centerModalWeb.classList.remove("hidden");
     modal.classList.remove("opacity-0", "scale-95");
     modal.classList.add("opacity-100", "scale-100");
   }, 100);
@@ -70,24 +74,19 @@ openModalWeb.addEventListener("click", function () {
     }, 2000);
   });
   setTimeout(() => {
-    contentModal.forEach((el) => {
-      if (!el.classList.contains("hidden")) {
-        el.classList.remove("opacity-0");
-        el.classList.add("opacity-100");
-      } else {
-        el.classList.remove("opacity-100");
-        el.classList.add("opacity-0");
-      }
-    });
+    contentWeb1.classList.remove("opacity-0");
+    contentWeb1.classList.add("opacity-100");
   }, 1000);
 });
 
 // Open modal via other button
 openModalOther.addEventListener("click", function () {
   modal.classList.remove("hidden");
+  centerModalOther.classList.remove("hidden");
+  contentOther1.classList.remove("hidden");
+  sideModal.classList.remove("hidden");
 
   setTimeout(() => {
-    centerModalOther.classList.remove("hidden");
     modal.classList.remove("opacity-0", "scale-95");
     modal.classList.add("opacity-100", "scale-100");
   }, 100);
@@ -117,28 +116,19 @@ openModalOther.addEventListener("click", function () {
     }, 2000);
   });
   setTimeout(() => {
-    contentModal.forEach((el) => {
-      if (!el.classList.contains("hidden")) {
-        el.classList.remove("opacity-0");
-        el.classList.add("opacity-100");
-      } else {
-        el.classList.remove("opacity-100");
-        el.classList.add("opacity-0");
-      }
-    });
+    contentOther1.classList.remove("opacity-0");
+    contentOther1.classList.add("opacity-100");
   }, 1000);
 });
 
 closeModalBtn.addEventListener("click", function () {
   sideModal.classList.remove("opacity-100", "w-20");
-  sideModal.classList.add("opacity-0", "w-0");
-  if (!centerModalWeb.classList.contains("hidden")) {
-    centerModalWeb.classList.remove("opacity-100", "w-1/4");
-    centerModalWeb.classList.add("opacity-0", "w-0", "hidden");
-  } else if (!centerModalOther.classList.contains("hidden")) {
-    centerModalOther.classList.remove("opacity-100", "w-1/4");
-    centerModalOther.classList.add("opacity-0", "w-0", "hidden");
-  }
+  sideModal.classList.add("opacity-0", "w-0", "hidden");
+
+  centerModalWeb.classList.remove("opacity-100", "w-1/4");
+  centerModalWeb.classList.add("opacity-0", "w-0", "hidden");
+  centerModalOther.classList.remove("opacity-100", "w-1/4");
+  centerModalOther.classList.add("opacity-0", "w-0", "hidden");
 
   modalSides.forEach((el) => {
     el.classList.add("opacity-0", "-translate-x-4");
@@ -147,12 +137,19 @@ closeModalBtn.addEventListener("click", function () {
   sideText.forEach((el) => {
     el.classList.remove("text-[0px]", "opacity-0");
   });
-    contentModal.forEach((el) => {
-      if (el.classList.contains("opacity-100")) {
-        el.classList.remove("opacity-100");
-        el.classList.add("opacity-0");
-      }
-    });
+
+  contentModal.forEach((el) => {
+    el.classList.remove("opacity-100");
+    el.classList.add("opacity-0", "hidden");
+  });
+
+  // Reset all button states
+  btnWeb1.classList.remove("font-bold");
+  btnWeb2.classList.remove("font-bold");
+  btnWeb3.classList.remove("font-bold");
+  btnOther1.classList.remove("font-bold");
+  btnOther2.classList.remove("font-bold");
+  btnOther3.classList.remove("font-bold");
 
   modal.classList.remove("opacity-100", "scale-100");
   modal.classList.add("opacity-0", "scale-95");
@@ -241,4 +238,129 @@ btnWeb3.addEventListener("click", function () {
       btnWeb3.classList.add("font-bold");
     }, 50);
   }, 200);
+});
+
+btnOther1.addEventListener("click", function () {
+  if (contentOther2.classList.contains("opacity-100")) {
+    btnOther2.classList.remove("font-bold");
+    contentOther2.classList.remove("opacity-100");
+    contentOther2.classList.add("opacity-0");
+    setTimeout(() => {
+      contentOther2.classList.add("hidden");
+    }, 200);
+  }
+  if (contentOther3.classList.contains("opacity-100")) {
+    btnOther3.classList.remove("font-bold");
+    contentOther3.classList.remove("opacity-100");
+    contentOther3.classList.add("opacity-0");
+    setTimeout(() => {
+      contentOther3.classList.add("hidden");
+    }, 200);
+  }
+  setTimeout(() => {
+    contentOther1.classList.remove("hidden");
+    setTimeout(() => {
+      contentOther1.classList.remove("opacity-0");
+      contentOther1.classList.add("opacity-100");
+      btnOther1.classList.add("font-bold");
+    }, 50);
+  }, 200);
+});
+btnOther2.addEventListener("click", function () {
+  if (contentOther1.classList.contains("opacity-100")) {
+    btnOther1.classList.remove("font-bold");
+    contentOther1.classList.remove("opacity-100");
+    contentOther1.classList.add("opacity-0");
+    setTimeout(() => {
+      contentOther1.classList.add("hidden");
+    }, 200);
+  }
+  if (contentOther3.classList.contains("opacity-100")) {
+    btnOther3.classList.remove("font-bold");
+    contentOther3.classList.remove("opacity-100");
+    contentOther3.classList.add("opacity-0");
+    setTimeout(() => {
+      contentOther3.classList.add("hidden");
+    }, 200);
+  }
+  setTimeout(() => {
+    contentOther2.classList.remove("hidden");
+    setTimeout(() => {
+      contentOther2.classList.remove("opacity-0");
+      contentOther2.classList.add("opacity-100");
+      btnOther2.classList.add("font-bold");
+    }, 50);
+  }, 200);
+});
+btnOther3.addEventListener("click", function () {
+  if (contentOther1.classList.contains("opacity-100")) {
+    btnOther1.classList.remove("font-bold");
+    contentOther1.classList.remove("opacity-100");
+    contentOther1.classList.add("opacity-0");
+    setTimeout(() => {
+      contentOther1.classList.add("hidden");
+    }, 200);
+  }
+  if (contentOther2.classList.contains("opacity-100")) {
+    btnOther2.classList.remove("font-bold");
+    contentOther2.classList.remove("opacity-100");
+    contentOther2.classList.add("opacity-0");
+    setTimeout(() => {
+      contentOther2.classList.add("hidden");
+    }, 200);
+  }
+  setTimeout(() => {
+    contentOther3.classList.remove("hidden");
+    setTimeout(() => {
+      contentOther3.classList.remove("opacity-0");
+      contentOther3.classList.add("opacity-100");
+      btnOther3.classList.add("font-bold");
+    }, 50);
+  }, 200);
+});
+
+sideWeb.addEventListener("click", function () {
+  // Show web project modal, hide other project modal
+  centerModalWeb.classList.remove("hidden", "opacity-0", "w-0");
+  centerModalWeb.classList.add("opacity-100", "w-1/4");
+  centerModalOther.classList.add("hidden", "opacity-0", "w-0");
+  centerModalOther.classList.remove("opacity-100", "w-1/4");
+  // Show web content 1, hide all other content
+  contentWeb1.classList.remove("hidden", "opacity-0");
+  contentWeb1.classList.add("opacity-100");
+  contentWeb2.classList.add("hidden", "opacity-0");
+  contentWeb3.classList.add("hidden", "opacity-0");
+  contentOther1.classList.add("hidden", "opacity-0");
+  contentOther2.classList.add("hidden", "opacity-0");
+  contentOther3.classList.add("hidden", "opacity-0");
+  // Reset button bold
+  btnWeb1.classList.add("font-bold");
+  btnWeb2.classList.remove("font-bold");
+  btnWeb3.classList.remove("font-bold");
+  btnOther1.classList.remove("font-bold");
+  btnOther2.classList.remove("font-bold");
+  btnOther3.classList.remove("font-bold");
+});
+
+sideOther.addEventListener("click", function () {
+  // Show other project modal, hide web project modal
+  centerModalOther.classList.remove("hidden", "opacity-0", "w-0");
+  centerModalOther.classList.add("opacity-100", "w-1/4");
+  centerModalWeb.classList.add("hidden", "opacity-0", "w-0");
+  centerModalWeb.classList.remove("opacity-100", "w-1/4");
+  // Show other content 1, hide all web content
+  contentOther1.classList.remove("hidden", "opacity-0");
+  contentOther1.classList.add("opacity-100");
+  contentOther2.classList.add("hidden", "opacity-0");
+  contentOther3.classList.add("hidden", "opacity-0");
+  contentWeb1.classList.add("hidden", "opacity-0");
+  contentWeb2.classList.add("hidden", "opacity-0");
+  contentWeb3.classList.add("hidden", "opacity-0");
+  // Reset button bold
+  btnOther1.classList.add("font-bold");
+  btnOther2.classList.remove("font-bold");
+  btnOther3.classList.remove("font-bold");
+  btnWeb1.classList.remove("font-bold");
+  btnWeb2.classList.remove("font-bold");
+  btnWeb3.classList.remove("font-bold");
 });
