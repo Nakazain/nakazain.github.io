@@ -37,11 +37,31 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Open modal via web project
-openModalWeb.addEventListener("click", function () {
+function  showContentWeb(contentId, btnId) {
+  setTimeout(() => {
+    contentId.classList.remove("hidden");
+    setTimeout(() => {
+      contentId.classList.remove("opacity-0");
+      contentId.classList.add("opacity-100");
+      btnId.classList.add("font-bold");
+    }, 200);
+  }, 50);
+}
+
+function hideContentWeb(contentId, btnId) {
+  btnId.classList.remove("font-bold");
+  contentId.classList.remove("opacity-100");
+  contentId.classList.add("opacity-0");
+  setTimeout(() => {
+    contentId.classList.add("hidden");
+  }, 50);
+}
+
+
+function openModal(centerModal, contentModal, contentId) {
   modal.classList.remove("hidden");
-  centerModalWeb.classList.remove("hidden");
-  contentWeb1.classList.remove("hidden");
+  centerModal.classList.remove("hidden");
+  contentId.classList.remove("hidden");
   sideModal.classList.remove("hidden");
 
   setTimeout(() => {
@@ -54,8 +74,8 @@ openModalWeb.addEventListener("click", function () {
     sideModal.classList.add("opacity-100", "w-2/6");
   }, 500);
   setTimeout(() => {
-    centerModalWeb.classList.remove("opacity-0", "w-0");
-    centerModalWeb.classList.add("opacity-100", "w-1/4");
+    centerModal.classList.remove("opacity-0", "w-0");
+    centerModal.classList.add("opacity-100", "w-1/4");
   }, 700);
   setTimeout(() => {
     sideModal.classList.remove("w-2/6");
@@ -68,16 +88,19 @@ openModalWeb.addEventListener("click", function () {
       el.classList.add("opacity-100", "translate-x-0");
     }, 700 + index * 200);
   });
+
   sideText.forEach((el, index) => {
     setTimeout(() => {
       el.classList.add("text-[0px]", "opacity-0");
     }, 2000);
   });
+
   setTimeout(() => {
-    contentWeb1.classList.remove("opacity-0");
-    contentWeb1.classList.add("opacity-100");
+    contentId.classList.remove("opacity-0");
+    contentId.classList.add("opacity-100");
   }, 1000);
-});
+}
+
 
 openModalOther.addEventListener("click", function () {
   modal.classList.remove("hidden");
@@ -120,6 +143,14 @@ openModalOther.addEventListener("click", function () {
   }, 1000);
 });
 
+openModalWeb.addEventListener("click", function () {
+  openModal(centerModalWeb, contentModal, contentWeb1);
+});
+
+openModalOther.addEventListener("click", function () {
+  openModal(centerModalOther, contentModal, contentOther1);
+});
+
 closeModalBtn.addEventListener("click", function () {
   sideModal.classList.remove("opacity-100", "w-20");
   sideModal.classList.add("opacity-0", "w-0", "hidden");
@@ -160,162 +191,61 @@ closeModalBtn.addEventListener("click", function () {
 
 btnWeb1.addEventListener("click", function () {
   if (contentWeb2.classList.contains("opacity-100")) {
-    btnWeb2.classList.remove("font-bold");
-    contentWeb2.classList.remove("opacity-100");
-    contentWeb2.classList.add("opacity-0");
-    setTimeout(() => {
-      contentWeb2.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentWeb2, btnWeb2);
   }
   if (contentWeb3.classList.contains("opacity-100")) {
-    btnWeb3.classList.remove("font-bold");
-    contentWeb3.classList.remove("opacity-100");
-    contentWeb3.classList.add("opacity-0");
-    setTimeout(() => {
-      contentWeb3.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentWeb3, btnWeb3);
   }
-  setTimeout(() => {
-    contentWeb1.classList.remove("hidden");
-    setTimeout(() => {
-      contentWeb1.classList.remove("opacity-0");
-      contentWeb1.classList.add("opacity-100");
-      btnWeb1.classList.add("font-bold");
-    }, 50);
-  }, 200);
+  showContentWeb(contentWeb1, btnWeb1);
 });
 
 btnWeb2.addEventListener("click", function () {
   if (contentWeb1.classList.contains("opacity-100")) {
-    btnWeb1.classList.remove("font-bold");
-    contentWeb1.classList.remove("opacity-100");
-    contentWeb1.classList.add("opacity-0");
-    setTimeout(() => {
-      contentWeb1.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentWeb1, btnWeb1);
   }
   if (contentWeb3.classList.contains("opacity-100")) {
-    btnWeb3.classList.remove("font-bold");
-    contentWeb3.classList.remove("opacity-100");
-    contentWeb3.classList.add("opacity-0");
-    setTimeout(() => {
-      contentWeb3.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentWeb3, btnWeb3); 
   }
-  setTimeout(() => {
-    contentWeb2.classList.remove("hidden");
-    setTimeout(() => {
-      contentWeb2.classList.remove("opacity-0");
-      contentWeb2.classList.add("opacity-100");
-      btnWeb2.classList.add("font-bold");
-    }, 50);
-  }, 200);
+showContentWeb(contentWeb2, btnWeb2);
 });
 
 btnWeb3.addEventListener("click", function () {
   if (contentWeb1.classList.contains("opacity-100")) {
-    btnWeb1.classList.remove("font-bold");
-    contentWeb1.classList.remove("opacity-100");
-    contentWeb1.classList.add("opacity-0");
-    setTimeout(() => {
-      contentWeb1.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentWeb1, btnWeb1);
   }
   if (contentWeb2.classList.contains("opacity-100")) {
-    btnWeb2.classList.remove("font-bold");
-    contentWeb2.classList.remove("opacity-100");
-    contentWeb2.classList.add("opacity-0");
-    setTimeout(() => {
-      contentWeb2.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentWeb2, btnWeb2);
   }
-  setTimeout(() => {
-    contentWeb3.classList.remove("hidden");
-    setTimeout(() => {
-      contentWeb3.classList.remove("opacity-0");
-      contentWeb3.classList.add("opacity-100");
-      btnWeb3.classList.add("font-bold");
-    }, 50);
-  }, 200);
+  showContentWeb(contentWeb3, btnWeb3);
 });
 
 btnOther1.addEventListener("click", function () {
-  if (contentOther2.classList.contains("opacity-100")) {
-    btnOther2.classList.remove("font-bold");
-    contentOther2.classList.remove("opacity-100");
-    contentOther2.classList.add("opacity-0");
-    setTimeout(() => {
-      contentOther2.classList.add("hidden");
-    }, 200);
+  if (contentOther2.classList.contains("opacity-100")) {  
+    hideContentWeb(contentOther2, btnOther2);
   }
   if (contentOther3.classList.contains("opacity-100")) {
-    btnOther3.classList.remove("font-bold");
-    contentOther3.classList.remove("opacity-100");
-    contentOther3.classList.add("opacity-0");
-    setTimeout(() => {
-      contentOther3.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentOther3, btnOther3);
   }
-  setTimeout(() => {
-    contentOther1.classList.remove("hidden");
-    setTimeout(() => {
-      contentOther1.classList.remove("opacity-0");
-      contentOther1.classList.add("opacity-100");
-      btnOther1.classList.add("font-bold");
-    }, 50);
-  }, 200);
+    showContentWeb(contentOther1, btnOther1);
 });
+
 btnOther2.addEventListener("click", function () {
   if (contentOther1.classList.contains("opacity-100")) {
-    btnOther1.classList.remove("font-bold");
-    contentOther1.classList.remove("opacity-100");
-    contentOther1.classList.add("opacity-0");
-    setTimeout(() => {
-      contentOther1.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentOther1, btnOther1);
   }
   if (contentOther3.classList.contains("opacity-100")) {
-    btnOther3.classList.remove("font-bold");
-    contentOther3.classList.remove("opacity-100");
-    contentOther3.classList.add("opacity-0");
-    setTimeout(() => {
-      contentOther3.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentOther3, btnOther3);
   }
-  setTimeout(() => {
-    contentOther2.classList.remove("hidden");
-    setTimeout(() => {
-      contentOther2.classList.remove("opacity-0");
-      contentOther2.classList.add("opacity-100");
-      btnOther2.classList.add("font-bold");
-    }, 50);
-  }, 200);
+    showContentWeb(contentOther2, btnOther2);
 });
 btnOther3.addEventListener("click", function () {
   if (contentOther1.classList.contains("opacity-100")) {
-    btnOther1.classList.remove("font-bold");
-    contentOther1.classList.remove("opacity-100");
-    contentOther1.classList.add("opacity-0");
-    setTimeout(() => {
-      contentOther1.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentOther1, btnOther1);
   }
   if (contentOther2.classList.contains("opacity-100")) {
-    btnOther2.classList.remove("font-bold");
-    contentOther2.classList.remove("opacity-100");
-    contentOther2.classList.add("opacity-0");
-    setTimeout(() => {
-      contentOther2.classList.add("hidden");
-    }, 200);
+    hideContentWeb(contentOther2, btnOther2);
   }
-  setTimeout(() => {
-    contentOther3.classList.remove("hidden");
-    setTimeout(() => {
-      contentOther3.classList.remove("opacity-0");
-      contentOther3.classList.add("opacity-100");
-      btnOther3.classList.add("font-bold");
-    }, 50);
-  }, 200);
+    showContentWeb(contentOther3, btnOther3);
 });
 
 sideWeb.addEventListener("click", function () {
